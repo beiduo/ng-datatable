@@ -9,11 +9,6 @@
     }
 
 
-	if (typeof module === "object" && typeof module.exports === "object") {
-		module.exports = 'ng-datatable';
-	}
-
-
     // main component
 
     function Controller ($timeout, $templateCache) {
