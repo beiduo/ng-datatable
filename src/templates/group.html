@@ -1,0 +1,18 @@
+<tr class="group-header" ng-if="vm.group.parent">
+    <td class="select-ceil" ng-if="vm.root.config.enableSelection">
+        <div class="ceil" ng-if="vm.root.config.enableGroupHeaderSelection">
+            <label class="ng-datatable-check">
+                <input type="checkbox"
+                    ng-model="vm.group.isSelected"
+                    ng-click="vm.onGroupSelect()"
+                />
+                <span class="text"></span>
+            </label>
+        </div>
+    </td>
+    <td colspan="{{vm.root.config.cols.length}}">
+        <ng-datatable-group-header ng-click="vm.onGroupOpen()" receive="vm.group.parent" root="vm.root"></ng-datatable-group-header>
+    </td>
+</tr>
+<tr ng-datatable-row ng-repeat="el in vm.group.children" row="el" group="vm.group" ng-show="vm.status.groupOpen" root="vm.root">
+</tr>

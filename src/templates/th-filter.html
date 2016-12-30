@@ -1,0 +1,15 @@
+<ul class="filter-options">
+    <li ng-class="{
+        current: !vm.status.selected
+    }">
+        <a href="javascript:;" ng-click="vm.onfilterSelect(null)">全部</a>
+    </li>
+    <li ng-repeat="option in vm.options track by $index" ng-class="{
+        current: option == vm.status.selected
+    }">
+        <a
+            href="javascript:;"
+            ng-click="vm.onfilterSelect(option)"
+        >{{option.name}}</a>
+    </li>
+</ul>

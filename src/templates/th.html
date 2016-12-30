@@ -1,0 +1,33 @@
+<div class="thead-ceil with-filter">
+    <div class="title">
+        {{vm.col.displayName}}
+    </div>
+    <a
+        href="javascript:;"
+        class="sort"
+        ng-if="vm.col.enableSort"
+        ng-class="{
+            'sort-asc': vm.config.sortOptions.sortBy === vm.col.field && vm.config.sortOptions.order === 'asc',
+            'sort-desc': vm.config.sortOptions.sortBy === vm.col.field && vm.config.sortOptions.order === 'desc'
+        }"
+        ng-click="vm.onSort()"
+    >
+        <span class="text">排序</span>
+    </a>
+    <a
+        href="javascript:;"
+        class="triangle filter-trigger"
+        ng-class="{
+            'filter-trigger-open': vm.status.filterOpen
+        }"
+        ng-click="vm.onFilterTrigger()"
+        ng-if="vm.col.enableFilter"
+    >过滤</a>
+    <ng-datatable-th-filter
+        ng-class="{show: vm.status.filterOpen}"
+        ng-if="vm.col.enableFilter"
+        options="vm.col.filterOptions"
+        col="vm.col"
+        root="vm.root"
+    ></ng-datatable-th-filter>
+</div>

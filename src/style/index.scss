@@ -1,0 +1,402 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../../fonts/icomoon.eot?1l220m');
+  src:  url('../../fonts/icomoon.eot?1l220m#iefix') format('embedded-opentype'),
+    url('../../fonts/icomoon.ttf?1l220m') format('truetype'),
+    url('../../fonts/icomoon.woff?1l220m') format('woff'),
+    url('../../fonts/icomoon.svg?1l220m#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ng-datatable,
+ng-datatable-th,
+ng-datatable-ceil {
+    display: block;
+}
+
+ng-datatable {
+
+    ul, li {
+        padding: 0;
+        margin: 0;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .triangle {
+        width: 0; 
+        height: 0; 
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+
+        border-top: 5px solid black;
+        text-indent: -9999px;
+        overflow: hidden;
+    }
+    
+    .maintable {
+        min-width: 100%;
+        border-collapse: 0;
+    }
+
+    th, td {
+        text-align: left;
+        vertical-align: top;
+        font-weight: 400;
+    }
+
+    th.align-right,
+    td.align-right {
+        text-align: right;
+    }
+
+    th.align-right {
+        ng-datatable-th-filter {
+            left: auto;
+            right: 24px;
+
+            &.show {
+                left: auto;
+                right: 12px;
+            }
+        }
+    }
+
+    thead th {
+        background: #fff;
+        border-bottom: 1px solid #C8C8C8;
+    }
+
+    tbody > tr:nth-child(even) > td {
+        background: #f3f3f6;
+    }
+
+    tbody:last-child > tr:last-child > td {
+        border-bottom-color: #f3f3f6 !important;
+    }
+
+    .ceil {
+        padding: 10px 12px;
+    }
+    
+}
+
+// thead
+
+ng-datatable-th {
+    position: relative;
+    padding: 10px 12px;
+
+    .thead-ceil > * {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .title {
+        font-weight: 700;
+    }
+
+    /*==== sorting ====*/
+
+    .sort {
+        /* use !important to prevent issues with browser extensions that change fonts */
+        font-family: 'icomoon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        .text {
+            display: none;
+        }
+    }
+
+    .sort:before {
+        content: "\296e";
+    }
+
+    .sort-asc:before {
+        content: "\2913";
+    }
+
+    .sort-desc:before {
+        content: "\2912";
+    }
+
+    .filter-trigger {
+        transition: transform 0.5s;
+    }
+
+    .filter-trigger-open {
+        transform: scaleY(-1);
+    }
+}
+
+// filtering
+
+ng-datatable-th-filter {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 100px;
+    margin-top: -5px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0px 2px 4px #b2b2b2;
+    white-space: nowrap;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+    z-index: 2;
+
+    &.show {
+        left: 12px;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .filter-options {
+        a {
+            display: block;
+            padding: 6px 20px;
+            color: #555;
+
+            &:hover, &:active {
+                background: #F0F0F4;
+            }
+        }
+
+        .current a {
+            &:link,
+            &:visited,
+            &:hover,
+            &:active {
+                background: #737A7F;
+                color: #fff;
+            }
+        }
+    }
+}
+
+// group
+
+tbody[ng-datatable-group] {
+    tr:last-child > td {
+        border-bottom: 1px solid #C8C8C8;
+    }
+
+    > tr:nth-child(odd) > td {
+        background: #f3f3f6;
+    }
+
+    > tr:nth-child(even) > td {
+        background: #fff;
+    }
+
+    /*==== Grouping ====*/
+    .group-header td {
+        background: #EFEFF4 !important;
+    }
+
+    .select-ceil {
+        width: 35px;
+        text-align: center;
+    }
+}
+
+ng-datatable-group-header {
+    cursor: pointer;
+
+    .group-caption,
+    .group-trigger {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .group-caption {
+        font-weight: 700;
+    }
+
+    .group-trigger {
+        margin-left: 0.8em;
+        transition: transform 0.5s;
+    }
+
+    .group-trigger-open {
+        transform: scaleY(-1);
+    }
+}
+
+.ng-datatable-check {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+
+    * {
+        vertical-align: middle;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+
+    .text {
+        position: relative;
+        margin-bottom: -3px;
+
+        * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &:before {
+            content: " ";
+            display: inline-block;
+            margin-right: 0.5em;
+            overflow: hidden;
+            text-indent: -9999px;
+            margin-bottom: -2px;
+        }
+
+        &:after {
+            content: " ";
+            position: absolute;
+            overflow: hidden;
+            text-indent: -9999px;
+            margin-bottom: -2px;
+        }
+    }
+
+    input[type="checkbox"] + .text {
+        cursor: pointer;
+
+        &:before {
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            border: 1px solid #888;
+            border-radius: 4px;
+        }
+
+        &:hover:before {
+            border-color: #e71d36;
+        }
+
+        
+    }
+
+    input[type="checkbox"]:checked + .text {
+        &:before {
+            border-color: #e71d36;
+            background: #e71d36;
+        }
+
+        &:after {
+            top: 2px;
+            left: 5px;
+            width: 5px;
+            height: 9px;
+            transform: rotate(45deg);
+            border-width: 2px;
+            border-style: solid;
+            border-color: #fff;
+            border-top: 0;
+            border-left: 0;
+        }
+    }
+
+    input[type="checkbox"]:indeterminate + .text {
+        &:before {
+            border-color: #e71d36;
+            background: #e71d36;
+        }
+
+        &:after {
+            top: 7px;
+            left: 3px;
+            width: 9px;
+            height: 2px;
+            background: #fff;
+            border-radius: 4px;
+        }
+    }
+
+    input[type="checkbox"]:disabled + .text {
+        cursor: not-allowed;
+
+        &:before {
+            background: #EFEFF4;
+        }
+
+        &:hover:before {
+            border-color: #888;
+        }
+    }
+
+    input[type="radio"] + .text {
+        cursor: pointer;
+
+        &:before {
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            border: 1px solid #888;
+            border-radius: 50%;
+        }
+
+        &:hover:before {
+            border-color: #e71d36;
+        }
+
+        
+    }
+
+    input[type="radio"]:checked + .text {
+        &:before {
+            border-color: #e71d36;
+            background: #e71d36;
+        }
+
+        &:after {
+            top: 2px;
+            left: 5px;
+            width: 5px;
+            height: 9px;
+            transform: rotate(45deg);
+            border-width: 2px;
+            border-style: solid;
+            border-color: #fff;
+            border-top: 0;
+            border-left: 0;
+        }
+    }
+
+    input[type="radio"]:disabled + .text {
+        cursor: not-allowed;
+
+        &:before {
+            background: #EFEFF4;
+        }
+
+        &:hover:before {
+            border-color: #888;
+        }
+    }
+}
