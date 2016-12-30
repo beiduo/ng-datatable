@@ -216,11 +216,11 @@ you can get the default templates in ```src/templates/``` directory
 
 ### Valid template configuration
 
-tableTemplateUrl / tableTemplate: ```tabel.html```
-theadCeilTemplateUrl / theadCeilTemplate: ```th.html```
-filterTemplateUrl / filterTemplate: ```th-filter.html```
-groupHeaderTemplateUrl / groupHeaderTemplate: ```group-header.html```
-ceilTemplateUrl / ceilTemplate: ```ceil.html```
+- tableTemplateUrl / tableTemplate: ```tabel.html```
+- theadCeilTemplateUrl / theadCeilTemplate: ```th.html```
+- filterTemplateUrl / filterTemplate: ```th-filter.html```
+- groupHeaderTemplateUrl / groupHeaderTemplate: ```group-header.html```
+- ceilTemplateUrl / ceilTemplate: ```ceil.html```
 
 ### How to configure
 
@@ -234,28 +234,28 @@ Api documentation coming soon
 
 ### Get Current States
 
-getSelections
-getRows
-getRowsBy { status: 'failed', amount: 3265340980 }
-getParams
-getView
+- getSelections
+- getRows
+- getRowsBy { status: 'failed', amount: 3265340980 }
+- getParams
+- getView
 
 ### Set States
 
-setData($ctrl.dataNew)
-setParams({status: 2})
+- setData($ctrl.dataNew)
+- setParams({status: 2})
 
 ### Select All From Outside
 
-selectAllRows
-unselectAllRows
+- selectAllRows
+- unselectAllRows
 
 ### Change Configuration of Selecting
 
-disableSelection
-enableSelection
-toggleSelection
-disableGroupHeaderSelection
-enableGroupHeaderSelection
-disableSelectAll
-enableSelectAll
+- disableSelection
+- enableSelection
+- toggleSelection
+- disableGroupHeaderSelection
+- enableGroupHeaderSelection
+- disableSelectAll
+- enableSelectAll
