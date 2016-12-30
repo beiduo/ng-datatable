@@ -11,8 +11,10 @@
 
     // main component
 
-    function Controller ($timeout, $templateCache) {
+    function Controller ($templateCache) {
         let self = this;
+
+        // build the data
 
         this.buildData = (config, receive) => {
             this.receive = receive;
@@ -66,13 +68,6 @@
 
         this.buildGroup = (config, data) => {
             let result = {};
-
-            // result.pagination = Object.assign({}, {
-            //     pageNo: 0,
-            //     pageSize: 0,
-            //     totalCount: 0,
-            //     totalRecord: 0
-            // }, data.pagination);
 
             if (!config.enableGrouping) {
                 result.rows = [
@@ -154,6 +149,8 @@
             }
         };
 
+        // Sorting
+
         this.onSort = (option) => {
             let self = this;
 
@@ -176,6 +173,8 @@
         };
 
         this.onSort = this.onSort.bind(this);
+
+        // onParamsChange
 
         this.onParamsChange = (field, option) => {
             if (typeof field === 'string') {
@@ -332,15 +331,8 @@
             
             this.buildData(this.config, this.receive);
 
-            // console.log(this.rows);
-
-            // $timeout(() => {
-            //     this.data.rows[0].children[0].entity.amount = 324;
-            //     console.log(this.rows);
-            // }, 5000);
-
-            // console.log(this.data);
-
+            // Api
+            
             this.api = {
                 getRows: () => {
                     return this.rows;
@@ -414,9 +406,13 @@
                 }
             };
 
+            // Api bind this
+
             Object.keys(this.api).forEach(key => {
                 this.api[key] = this.api[key].bind(self);
             });
+
+            // Register api
 
             if (typeof this.config.apiRegister === 'function') {
                 this.config.apiRegister(this.api);
@@ -428,7 +424,7 @@
         
     }
 
-    Controller.$inject = ['$timeout', '$templateCache'];
+    Controller.$inject = ['$templateCache'];
 
     app.component('ngDatatable', {
         bindings: {
