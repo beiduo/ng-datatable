@@ -53,6 +53,11 @@
 
         this.dataSort = () => {
             let self = this;
+
+            if (typeof this.config.sortOptions !== 'object' || !this.config.sortOptions.sortBy) {
+                return;
+            }
+
             // TODO now only compare numbers, needs more comparations
             this.data.rows.forEach(group => {
                 let sortOptions = self.config.sortOptions;
