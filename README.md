@@ -94,7 +94,7 @@ function Controller () {
 
                 // please see the template documentation
                 
-                ceilTemplate: '<div class="ceil"><a href="javascript:;">view detail</a></div>',
+                cellTemplate: '<div class="cell"><a href="javascript:;">view detail</a></div>',
             }
         ],
         // default sort option, the data will automatically be sorted
@@ -113,7 +113,7 @@ function Controller () {
         // selection
         enableSelection: true,
         // allow selecting allow
-        // if true, a checkbox will show in the first ceil of table header
+        // if true, a checkbox will show in the first cell of table header
         enableSelectAll: true,
         // allow selection in group header
         enableGroupHeaderSelection: true,
@@ -217,10 +217,10 @@ you can get the default templates in ```src/templates/``` directory
 ### Valid template configuration
 
 - tableTemplateUrl / tableTemplate: ```tabel.html```
-- theadCeilTemplateUrl / theadCeilTemplate: ```th.html```
+- theadCellTemplateUrl / theadCellTemplate: ```th.html```
 - filterTemplateUrl / filterTemplate: ```th-filter.html```
 - groupHeaderTemplateUrl / groupHeaderTemplate: ```group-header.html```
-- ceilTemplateUrl / ceilTemplate: ```ceil.html```
+- cellTemplateUrl / cellTemplate: ```cell.html```
 
 ### How to configure
 

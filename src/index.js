@@ -215,7 +215,7 @@
                 th: 'ng-datatable-th.html',
                 thFilter: 'ng-datatable-th-filter.html',
                 groupHeader: 'ng-datatable-group-header.html',
-                ceil: 'ng-datatable-ceil.html'
+                cell: 'ng-datatable-cell.html'
             };
 
             // tableTemplateUrl
@@ -230,14 +230,14 @@
                 this.templateUrls.table =  'ng-datatable-custom-table';
             }
 
-            // theadCeilTemplateUrl
+            // theadCellTemplateUrl
 
-            if (typeof this.config.theadCeilTemplateUrl === 'string') {
-                this.templateUrls.th = this.config.theadCeilTemplateUrl;
+            if (typeof this.config.theadCellTemplateUrl === 'string') {
+                this.templateUrls.th = this.config.theadCellTemplateUrl;
             }
 
-            if (typeof this.config.theadCeilTemplate === 'string') {
-                $templateCache.put('ng-datatable-custom-th', this.config.theadCeilTemplate);
+            if (typeof this.config.theadCellTemplate === 'string') {
+                $templateCache.put('ng-datatable-custom-th', this.config.theadCellTemplate);
 
                 this.templateUrls.th =  'ng-datatable-custom-th';
             }
@@ -266,16 +266,16 @@
                 this.templateUrls.groupHeader =  'ng-datatable-custom-group-header';
             }
 
-            // ceilTemplateUrl
+            // cellTemplateUrl
 
-            if (typeof this.config.ceilTemplateUrl === 'string') {
-                this.templateUrls.ceil = this.config.ceilTemplateUrl;
+            if (typeof this.config.cellTemplateUrl === 'string') {
+                this.templateUrls.cell = this.config.cellTemplateUrl;
             }
 
-            if (typeof this.config.ceilTemplate === 'string') {
-                $templateCache.put('ng-datatable-custom-ceil', this.config.ceilTemplate);
+            if (typeof this.config.cellTemplate === 'string') {
+                $templateCache.put('ng-datatable-custom-cell', this.config.cellTemplate);
 
-                this.templateUrls.ceil =  'ng-datatable-custom-ceil';
+                this.templateUrls.cell =  'ng-datatable-custom-cell';
             }
 
             // template of columns
@@ -286,20 +286,20 @@
                     return;
                 }
 
-                if (typeof col.theadCeilTemplateUrl === 'string') {
-                    self.templateUrls['th_' + col.field] = col.theadCeilTemplateUrl;
+                if (typeof col.theadCellTemplateUrl === 'string') {
+                    self.templateUrls['th_' + col.field] = col.theadCellTemplateUrl;
                 }
 
                 if (typeof col.filterTemplateUrl === 'string') {
                     self.templateUrls['filter_' + col.field] = col.filterTemplateUrl;
                 }
 
-                if (typeof col.ceilTemplateUrl === 'string') {
-                    self.templateUrls['ceil_' + col.field] = col.ceilTemplateUrl;
+                if (typeof col.cellTemplateUrl === 'string') {
+                    self.templateUrls['cell_' + col.field] = col.cellTemplateUrl;
                 }
 
-                if (typeof col.theadCeilTemplate === 'string') {
-                    $templateCache.put('ng-datatable-th_' + col.field, col.theadCeilTemplate);
+                if (typeof col.theadCellTemplate === 'string') {
+                    $templateCache.put('ng-datatable-th_' + col.field, col.theadCellTemplate);
                     self.templateUrls['th_' + col.field] = 'ng-datatable-th_' + col.field;
                 }
 
@@ -308,9 +308,9 @@
                     self.templateUrls['thFilter_' + col.field] = 'ng-datatable-th-filter_' + col.field;
                 }
 
-                if (typeof col.ceilTemplate === 'string') {
-                    $templateCache.put('ng-datatable-ceil_' + col.field, col.ceilTemplate);
-                    self.templateUrls['ceil_' + col.field] = 'ng-datatable-ceil_' + col.field;
+                if (typeof col.cellTemplate === 'string') {
+                    $templateCache.put('ng-datatable-cell_' + col.field, col.cellTemplate);
+                    self.templateUrls['cell_' + col.field] = 'ng-datatable-cell_' + col.field;
                 }
             });
 

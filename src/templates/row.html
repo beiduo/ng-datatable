@@ -1,5 +1,5 @@
-<td class="select-ceil" ng-if="vm.root.config.enableSelection">
-    <div class="ceil">
+<td class="select-cell" ng-if="vm.root.config.enableSelection">
+    <div class="cell">
         <label class="ng-datatable-check">
             <input
                 type="checkbox"
@@ -12,5 +12,5 @@
     </div>
 </td>
 <td ng-repeat="el in vm.root.config.cols" data-ref="{{el.field}}" ng-class="vm.getTdClass(el)">
-    <ng-datatable-ceil field="el.field" row="vm.row" col="el" root="vm.root"></ng-datatable-ceil>
+    <ng-datatable-cell field="el.field" row="vm.row" col="el" root="vm.root"></ng-datatable-cell>
 </td>

@@ -16,7 +16,7 @@
         this.getTemplateUrl = () => {
             let urls = this.root.templateUrls;
 
-            return urls['ceil_' + this.col.field] || urls.ceil;
+            return urls['cell_' + this.col.field] || urls.cell;
         };
 
         this.applyFilter = (model, filter) => {
@@ -45,7 +45,7 @@
         '$filter'
     ];
 
-    app.component('ngDatatableCeil', {
+    app.component('ngDatatableCell', {
         bindings: {
             row: '<',
             field: '<',

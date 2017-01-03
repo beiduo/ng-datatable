@@ -11,7 +11,7 @@
 
 ng-datatable,
 ng-datatable-th,
-ng-datatable-ceil {
+ng-datatable-cell {
     display: block;
 }
 
@@ -78,7 +78,7 @@ ng-datatable {
         border-bottom-color: #f3f3f6 !important;
     }
 
-    .ceil {
+    .cell {
         padding: 10px 12px;
     }
     
@@ -90,7 +90,7 @@ ng-datatable-th {
     position: relative;
     padding: 10px 12px;
 
-    .thead-ceil > * {
+    .thead-cell > * {
         display: inline-block;
         vertical-align: middle;
     }
@@ -209,7 +209,7 @@ tbody[ng-datatable-group] {
         background: #EFEFF4 !important;
     }
 
-    .select-ceil {
+    .select-cell {
         width: 35px;
         text-align: center;
     }
