@@ -143,9 +143,31 @@ function Controller () {
 
         // apiRegister, register api to you own component or anything else
         apiRegister: function (api) {
-            self.gridApi = api;
+            this.gridApi = api;
+        },
+
+        // onRowSelectionChange will be executed when selecting or unselecting a row
+        onRowSelectionChange: function (row) {
+            if (!row.isSelected) {
+                this.gridOption.allSelected = false;
+                this.dataAllAssets.selected = false;
+            }
+            this.gridUpdateSelection();
+        },
+
+        // onGroupSelectionChange will be executed when selecting or unselecting a group
+        onGroupSelectionChange: function (group) {
+            if (!group.isSelected) {
+                this.gridOption.allSelected = false;
+                this.dataAllAssets.selected = false;
+            }
+            this.gridUpdateSelection();
         }
     };
+
+    this.gridConfig.apiRegister = this.gridConfig.apiRegister.bind(this);
+    this.gridConfig.onRowSelectionChange = this.gridConfig.onRowSelectionChange.bind(this);
+    this.gridConfig.onGroupSelectionChange = this.gridConfig.onGroupSelectionChange.bind(this);
 
 
     // Plain data
@@ -171,7 +193,7 @@ function Controller () {
         {
             // the group header, can be a string, or an object
             // if it is an object, use groupHeaderTemplateUrl or groupHeaderTemplate to define a template
-            partnerName: '张记钱庄',
+            partnerName: 'ABC Company',
             detail: [
                 {
                     asset_no: 'LS54364559',
