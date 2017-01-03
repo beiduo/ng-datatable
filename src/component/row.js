@@ -18,6 +18,10 @@
                 this.root.allSelected = false;
                 this.group.isSelected = false;
             }
+
+            if (typeof this.root.config.onRowSelectionChange === 'function') {
+                this.root.config.onRowSelectionChange(this.row);
+            }
         };
 
         this.getTdClass = (col) => {

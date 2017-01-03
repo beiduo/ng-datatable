@@ -39,7 +39,7 @@
                     } 
                     let col = self.config.cols.find(col => col.field === key);
                     if (col && typeof col.filterOptions === 'object') {
-                        self.data.rows.forEach(group => {
+                        self.data.forEach(group => {
                             group.children = group.children.filter(child =>
                                 child.entity[key] === col.filterOptions.find(option =>
                                     option.value === params[key]
@@ -59,7 +59,7 @@
             }
 
             // TODO now only compare numbers, needs more comparations
-            this.data.rows.forEach(group => {
+            this.data.forEach(group => {
                 let sortOptions = self.config.sortOptions;
                 group.children = group.children.sort((a, b) => {
                     if (sortOptions.order === 'desc') {
@@ -72,12 +72,12 @@
         };
 
         this.buildGroup = (config, data) => {
-            let result = {};
+            let result = [];
 
             if (!config.enableGrouping) {
-                result.rows = [
+                result = [
                     {
-                        children: data.rows.map(row => {
+                        children: data.map(row => {
                             return {
                                 entity: row
                             };
@@ -85,7 +85,7 @@
                     }
                 ];
             } else {
-                result.rows = data.rows.map(el => {
+                result = data.map(el => {
                     let obj = {};
 
                     if (typeof el[config.groupBy] === 'object') {
@@ -109,7 +109,7 @@
             }
 
             if (typeof config.dataSerialize === 'function') {
-                result.rows.forEach(row => {
+                result.forEach(row => {
                     row.children.forEach(child => {
                         child.entity = config.dataSerialize(child.entity);
                     });
@@ -121,7 +121,7 @@
 
         this.buildPlainRows = () => {
             let rows = [];
-            this.data.rows.forEach(group => {
+            this.data.forEach(group => {
                 group.children.forEach(child => {
                     rows[rows.length] = child;
                 });
@@ -138,7 +138,7 @@
                     }
                 });
 
-                this.data.rows.forEach(group => {
+                this.data.forEach(group => {
                     group.isSelected = true;
                 });
             } else {
@@ -148,7 +148,7 @@
                     }
                 });
 
-                this.data.rows.forEach(group => {
+                this.data.forEach(group => {
                     group.isSelected = false;
                 });
             }
@@ -422,9 +422,9 @@
             if (typeof this.config.apiRegister === 'function') {
                 this.config.apiRegister(this.api);
             }
-        };
 
-        console.log(this);
+            this.root = this;
+        };
 
         
     }
@@ -434,7 +434,8 @@
     app.component('ngDatatable', {
         bindings: {
             config: '<',
-            receive: '<'
+            receive: '<',
+            appScope: '<'
         },
         template: '<ng-include src="vm.templateUrls[\'table\']"></ng-include>',
         controller: Controller,

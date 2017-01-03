@@ -54,7 +54,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('ng-datatable-table.html',
-    '<table class="maintable"><thead><tr><th class="select-cell" ng-if="vm.config.enableSelection"><div class="cell" ng-if="vm.config.enableSelectAll"><label class="ng-datatable-check"><input type="checkbox" ng-model="vm.allSelected" ng-change="vm.onSelectAll()"> <span class="text"></span></label></div></th><th ng-repeat="el in vm.config.cols" data-ref="el.field" ng-class="vm.getThClass(el)"><ng-datatable-th col="el" config="vm.config" root="vm"></ng-datatable-th></th></tr></thead><tbody ng-datatable-group="" ng-repeat="el in vm.data.rows" group="el" root="vm"></tbody></table>');
+    '<table class="maintable"><thead><tr><th class="select-cell" ng-if="vm.config.enableSelection"><div class="cell" ng-if="vm.config.enableSelectAll"><label class="ng-datatable-check"><input type="checkbox" ng-model="vm.allSelected" ng-change="vm.onSelectAll()"> <span class="text"></span></label></div></th><th ng-repeat="el in vm.config.cols" data-ref="el.field" ng-class="vm.getThClass(el)"><ng-datatable-th col="el" config="vm.config" root="vm"></ng-datatable-th></th></tr></thead><tbody ng-datatable-group="" ng-repeat="el in vm.data" group="el" root="vm"></tbody></table>');
 }]);
 })();
 

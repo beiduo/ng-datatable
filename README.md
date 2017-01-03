@@ -130,7 +130,7 @@ function Controller () {
         },
         // if return false, this row can not be selected (when enableSelection is true)
         isRowSelectable: function (row) {
-            return row.entity.status !== '待审批';
+            return row.entity.status !== 'error';
         },
 
         // used in external sorting, filtering and the setParams api
@@ -167,42 +167,40 @@ function Controller () {
 
     // Grouping data
 
-    this.gridData = {
-        rows: [
-            {
-                // 分组的头部，可以设为单纯的字符串，也可以设为对象
-                // 设为对象后，需要使用groupHeaderTemplateUrl或groupHeaderTemplate自定义模板 (比如需要显示额外信息)
-                partnerName: '张记钱庄',
-                detail: [
-                    {
-                        asset_no: 'LS54364559',
-                        amount: 3265340980,
-                        status: 1
-                    },
-                    {
-                        asset_no: 'LS54364559',
-                        amount: 6745673,
-                        status: 2
-                    },
-                    {
-                        asset_no: 'LS54364559',
-                        amount: 3265340980,
-                        status: 3
-                    },
-                    {
-                        asset_no: 'LS54364559',
-                        amount: 7696887,
-                        status: 3
-                    },
-                    {
-                        asset_no: 'LS54364559',
-                        amount: 14267,
-                        status: 2
-                    }
-                ]
-            }
-        ]
-    };
+    this.gridData = [
+        {
+            // the group header, can be a string, or an object
+            // if it is an object, use groupHeaderTemplateUrl or groupHeaderTemplate to define a template
+            partnerName: '张记钱庄',
+            detail: [
+                {
+                    asset_no: 'LS54364559',
+                    amount: 3265340980,
+                    status: 1
+                },
+                {
+                    asset_no: 'LS54364559',
+                    amount: 6745673,
+                    status: 2
+                },
+                {
+                    asset_no: 'LS54364559',
+                    amount: 3265340980,
+                    status: 3
+                },
+                {
+                    asset_no: 'LS54364559',
+                    amount: 7696887,
+                    status: 3
+                },
+                {
+                    asset_no: 'LS54364559',
+                    amount: 14267,
+                    status: 2
+                }
+            ]
+        }
+    ];
 }
 ```
 
@@ -216,7 +214,7 @@ you can get the default templates in ```src/templates/``` directory
 
 ### Valid template configuration
 
-- tableTemplateUrl / tableTemplate: ```tabel.html```
+- tableTemplateUrl / tableTemplate: ```table.html```
 - theadCellTemplateUrl / theadCellTemplate: ```th.html```
 - filterTemplateUrl / filterTemplate: ```th-filter.html```
 - groupHeaderTemplateUrl / groupHeaderTemplate: ```group-header.html```
@@ -224,7 +222,7 @@ you can get the default templates in ```src/templates/``` directory
 
 ### How to configure
 
-tabel and groupHeader can be configured in the ```config``` property.
+table and groupHeader can be configured in the ```config``` property.
 
 other templates can be configured in the ```config``` property and each element of ```config.cols``` (to template one column)
 

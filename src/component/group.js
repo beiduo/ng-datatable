@@ -43,6 +43,10 @@
                     }
                 });
             }
+
+            if (typeof this.root.config.onGroupSelectionChange === 'function') {
+                this.root.config.onGroupSelectionChange(this.group);
+            }
         };
 
         this.$onInit = () => {
