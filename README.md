@@ -13,8 +13,8 @@ Documents and demonstration coming soon
 **HTML**
 
 ```html
-<link rel="stylesheet" href="lib/ng-dataview/dist/style/ng-datatable.min.css">
-<script src="lib/ng-dataview/dist/ng-datatable.min.js"></script>
+<link rel="stylesheet" href="dist/style/ng-datatable.min.css">
+<script src="dist/ng-datatable.min.js"></script>
 ```
 
 **JS**
@@ -42,7 +42,7 @@ angular.module('app', [ngDatatable]);
 ### HTML
 
 ```html
-<ng-datatable config="$ctrl.gridConfig" receive="$ctrl.gridData"></ng-datatable>
+<ng-datatable config="$ctrl.gridConfig" receive="$ctrl.gridData" app-scope="$ctrl"></ng-datatable>
 ```
 
 ### javascript
@@ -225,6 +225,12 @@ function Controller () {
     ];
 }
 ```
+
+### Q & A
+
+1. How to access my own component/controller in ng-datatable?
+   
+   use ```app-scope``` to pass your controller to the ngDatatable component, then access it by calling ```vm.root.appScope``` in your templates.
 
 ## Templating
 
