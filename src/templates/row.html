@@ -3,7 +3,7 @@
         <label class="ng-datatable-check">
             <input
                 type="checkbox"
-                ng-disabled="!vm.root.config.isRowSelectable(vm.row)"
+                ng-disabled="vm.root.config.isRowSelectable && !vm.root.config.isRowSelectable(vm.row)"
                 ng-model="vm.row.isSelected"
                 ng-change="vm.onRowSelect()"
             />

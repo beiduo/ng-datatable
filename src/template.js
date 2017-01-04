@@ -42,7 +42,7 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('ng-datatable-row.html',
-    '<td class="select-cell" ng-if="vm.root.config.enableSelection"><div class="cell"><label class="ng-datatable-check"><input type="checkbox" ng-disabled="!vm.root.config.isRowSelectable(vm.row)" ng-model="vm.row.isSelected" ng-change="vm.onRowSelect()"> <span class="text"></span></label></div></td><td ng-repeat="el in vm.root.config.cols" data-ref="{{el.field}}" ng-class="vm.getTdClass(el)"><ng-datatable-cell field="el.field" row="vm.row" col="el" root="vm.root"></ng-datatable-cell></td>');
+    '<td class="select-cell" ng-if="vm.root.config.enableSelection"><div class="cell"><label class="ng-datatable-check"><input type="checkbox" ng-disabled="vm.root.config.isRowSelectable && !vm.root.config.isRowSelectable(vm.row)" ng-model="vm.row.isSelected" ng-change="vm.onRowSelect()"> <span class="text"></span></label></div></td><td ng-repeat="el in vm.root.config.cols" data-ref="{{el.field}}" ng-class="vm.getTdClass(el)"><ng-datatable-cell field="el.field" row="vm.row" col="el" root="vm.root"></ng-datatable-cell></td>');
 }]);
 })();
 

@@ -13,7 +13,6 @@ Documents and demonstration coming soon
 **HTML**
 
 ```html
-<link rel="stylesheet" href="dist/style/ng-datatable.min.css">
 <script src="dist/ng-datatable.min.js"></script>
 ```
 
