@@ -6,12 +6,11 @@
         href="javascript:;"
         class="sort"
         ng-if="vm.col.enableSort"
-        ng-class="{
-            'sort-asc': vm.config.sortOptions.sortBy === vm.col.field && vm.config.sortOptions.order === 'asc',
-            'sort-desc': vm.config.sortOptions.sortBy === vm.col.field && vm.config.sortOptions.order === 'desc'
-        }"
         ng-click="vm.onSort()"
     >
+        <svg class="ico" ng-if="vm.config.sortOptions.sortBy !== vm.col.field"><use xlink:href="#icon-ng-datatable-sort"></use></svg>
+        <svg class="ico" ng-if="vm.config.sortOptions.sortBy === vm.col.field && vm.config.sortOptions.order === 'asc'"><use xlink:href="#icon-ng-datatable-sort-asc"></use></svg>
+        <svg class="ico" ng-if="vm.config.sortOptions.sortBy === vm.col.field && vm.config.sortOptions.order === 'desc'"><use xlink:href="#icon-ng-datatable-sort-desc"></use></svg>
         <span class="text">排序</span>
     </a>
     <a

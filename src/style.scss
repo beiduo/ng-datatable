@@ -92,34 +92,17 @@ ng-datatable-th {
     /*==== sorting ====*/
 
     .sort {
-        /* use !important to prevent issues with browser extensions that change fonts */
-        font-family: 'icomoon' !important;
-        speak: none;
-        font-style: normal;
-        font-weight: normal;
-        font-variant: normal;
-        text-transform: none;
-        line-height: 1;
 
-        /* Better Font Rendering =========== */
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        .ico {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            fill: currentColor;
+        }
 
         .text {
             display: none;
         }
-    }
-
-    .sort:before {
-        content: "\296e";
-    }
-
-    .sort-asc:before {
-        content: "\2913";
-    }
-
-    .sort-desc:before {
-        content: "\2912";
     }
 
     .filter-trigger {

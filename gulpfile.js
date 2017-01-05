@@ -5,16 +5,11 @@ var webpack = require('webpack-stream');
 
 // 引入组件
 var jshint = require('gulp-jshint');
-var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require("gulp-uglify");
 
 var ngHtml2Js = require('gulp-ng-html2js');
 var minifyHtml = require("gulp-minify-html");
-
-var cleanCSS = require('gulp-clean-css');
-
-var sourcemaps = require('gulp-sourcemaps');
 
 
 // 合并，压缩文件
@@ -33,6 +28,8 @@ gulp.task('build', function () {
         .pipe(gulp.dest("./src"));
         
     gulp.src('./src/index.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
         .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('./dist'));
 });
