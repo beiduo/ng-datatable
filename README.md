@@ -12,10 +12,6 @@ Documents and demonstration coming soon
 
 **HTML**
 
-```html
-<script src="dist/ng-datatable.min.js"></script>
-```
-
 **JS**
 
 ```javascript
@@ -40,9 +36,6 @@ angular.module('app', [ngDatatable]);
 
 ### HTML
 
-```html
-<ng-datatable config="$ctrl.gridConfig" receive="$ctrl.gridData" app-scope="$ctrl"></ng-datatable>
-```
 
 ### javascript
 
@@ -171,20 +164,18 @@ function Controller () {
 
     // Plain data
 
-    this.gridData = {
-        rows: [
-            {
-                asset_no: 'LS54364559',
-                amount: 3265340980,
-                status: 1
-            },
-            {
-                asset_no: 'LS54364559',
-                amount: 6745673,
-                status: 2
-            }
-        ]
-    };
+    this.gridData = [
+        {
+            asset_no: 'LS54364559',
+            amount: 3265340980,
+            status: 1
+        },
+        {
+            asset_no: 'LS54364559',
+            amount: 6745673,
+            status: 2
+        }
+    ];
 
     // Grouping data
 
