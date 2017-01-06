@@ -1,0 +1,73 @@
+<h1>Grouping</h1>
+<div class="demo">
+    <ng-datatable config="$ctrl.gridConfig" receive="$ctrl.gridData" app-scope="$ctrl"></ng-datatable>
+</div>
+
+<api-component grid-api="$ctrl.gridApi" new-data="$ctrl.newData" apis="$ctrl.apis"></api-component>
+
+<script type="text/ng-template" id="simple.md">
+## Source Code
+
+### Javascript
+
+```javascript
+function Controller () {
+    this.gridConfig = {
+        cols: [
+            {
+                field: 'name',
+                displayName: 'Name'
+            },
+            {
+                field: 'country',
+                displayName: 'Country'
+            },
+            {
+                field: 'age',
+                displayName: 'Age'
+            }
+        ],
+        enableGrouping: true,
+        groupBy: 'gender',
+        groupIn: 'people',
+        apiRegister: function (api) {
+            this.gridApi = api;
+        }
+    };
+
+    this.gridData = [
+        {
+            gender: 'male',
+            people: [
+                {
+                    name: 'Jack',
+                    country: 'USA',
+                    age: 18
+                },
+                {
+                    name: 'Andrew',
+                    country: 'UK',
+                    age: 21
+                }
+            ]
+        },
+        {
+            gender: 'female',
+            people: [
+                {
+                    name: 'Lucy',
+                    country: 'Germany',
+                    age: 16
+                },
+                {
+                    name: 'Xiao Mei',
+                    country: 'China',
+                    age: 19
+                }
+            ]
+        }
+    ];
+}
+```
+</script>
+<div marked src="'simple.md'" class="markdown-body"></div>

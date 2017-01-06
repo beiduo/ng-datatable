@@ -1,79 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="demo">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <h1>Demo</h1>
-    </header>
-    <aside>
-        <ul>
-            <li><a ui-sref="simple">Simple</a></li>
-            <li><a ui-sref="sorting">Sorting</a></li>
-            <li><a ui-sref="filter">Filter</a></li>
-            <li><a ui-sref="filter">Selection</a></li>
-            <li><a ui-sref="fetch">Fetch Data</a></li>
-            <li><a ui-sref="grouping">Grouping</a></li>
-            <li><a ui-sref="pagination">Pagination</a></li>
-        </ul>
-    </aside>
-    <main>
-        <h2>Simple Plain Data</h2>
-        <div class="demo">
-            <ng-datatable></ng-datatable>
-        </div>
-        <h3>Api</h3>
-            <div class="buttons">
-                <button class="btn btn-default" ng-class="{
-                'btn-primary': $ctrl.currentApi === 'getSelections'
-            }" ng-click="$ctrl.onApi('getSelections')">getSelections</button>
+    <div class="layout">
+        <aside>
+            <nav-component></nav-component>
+        </aside>
+        <main>
+            <ui-view></ui-view>
+        </main>
+    </div>
 
-            <button class="btn btn-default" ng-class="{
-                'btn-primary': $ctrl.currentApi === 'getRows'
-            }" ng-click="$ctrl.onApi('getRows')">getRows</button>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <symbol id="icon-menu" viewBox="0 0 32 32">
+                <title>menu</title>
+                <path class="path1" d="M2 6h28v6h-28zM2 14h28v6h-28zM2 22h28v6h-28z"></path>
+            </symbol>
+        </defs>
+    </svg>
 
-            <button class="btn btn-default" ng-class="{
-                'btn-primary': $ctrl.currentApi === 'getRowsBy'
-            }" ng-click="$ctrl.onApi('getRowsBy', {
-                status: '申请失败',
-                amount: 3265340980
-            })">getRowsBy {
-                status: '申请失败',
-                amount: 3265340980
-            }</button>
 
-            <button class="btn btn-default" ng-class="{
-                'btn-primary': $ctrl.currentApi === 'selectAllRows'
-            }" ng-click="$ctrl.onApi('selectAllRows')">selectAllRows</button>
-
-            <button class="btn btn-default" ng-class="{
-                'btn-primary': $ctrl.currentApi === 'unselectAllRows'
-            }" ng-click="$ctrl.onApi('unselectAllRows')">unselectAllRows</button>
-
-            <button class="btn btn-default" ng-class="{
-                'btn-primary': $ctrl.currentApi === 'getParams'
-            }" ng-click="$ctrl.onApi('getParams')">getParams</button>
-
-            <button class="btn btn-default" ng-class="{
-                'btn-primary': $ctrl.currentApi === 'setData'
-            }" ng-click="$ctrl.onApi('setData', $ctrl.dataNew)">setData($ctrl.dataNew)</button>
-
-            <button class="btn btn-default" ng-class="{
-                'btn-primary': $ctrl.currentApi === 'setParams'
-            }" ng-click="$ctrl.onApi('setParams', {status: 2})">setParams({status: 2})</button>
-
-            <button class="btn btn-default" ng-class="{
-                'btn-primary': $ctrl.currentApi === 'getView'
-            }" ng-click="$ctrl.getView()">getView</button>
-        </div>
-        <div class="callback">
-        </div>
-        <h3>Source Code</h3>
-        <div class="source">
-            <textarea></textarea>
-        </div>
-    </main>
+    <script src="dist/bundle.min.js"></script>
 </body>
 </html>

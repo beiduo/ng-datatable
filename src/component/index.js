@@ -202,6 +202,13 @@ function Controller ($templateCache) {
 
         this.colViews = {};
 
+        if (typeof this.config !== 'object') {
+            console.error('config is not defined');
+            return;
+        }
+
+        this.receive = this.receive || [];
+
         // set templates
 
         this.templateUrls = {

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/.bin/gulp",
+    "build": "./node_modules/.bin/gulp build",
+    "demo": "./node_modules/.bin/gulp demo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "vincesnow",
@@ -34,5 +35,12 @@
     "webpack": "^1.14.0",
     "webpack-stream": "^3.2.0",
     "webpack-uglify-js-plugin": "^1.1.9"
+  },
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-marked": "^1.2.2",
+    "angular-ui-router": "^1.0.0-beta.3",
+    "github-markdown-css": "^2.4.1",
+    "highlight.js": "^9.9.0"
   }
 }

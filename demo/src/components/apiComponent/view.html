@@ -1,0 +1,77 @@
+<h2>Api</h2>
+<div class="buttons">
+
+    <h3>Selection</h3>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'selectAllRows'
+    }" ng-click="$ctrl.onApi('selectAllRows')" ng-if="$ctrl.apis.indexOf('selectAllRows') > -1">selectAllRows</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'unselectAllRows'
+    }" ng-click="$ctrl.onApi('unselectAllRows')" ng-if="$ctrl.apis.indexOf('unselectAllRows') > -1">unselectAllRows</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'disableSelection'
+    }" ng-click="$ctrl.onApi('disableSelection')" ng-if="$ctrl.apis.indexOf('disableSelection') > -1">disableSelection</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'enableSelection'
+    }" ng-click="$ctrl.onApi('enableSelection')" ng-if="$ctrl.apis.indexOf('enableSelection') > -1">enableSelection</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'toggleSelection'
+    }" ng-click="$ctrl.onApi('toggleSelection')" ng-if="$ctrl.apis.indexOf('toggleSelection') > -1">toggleSelection</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'disableGroupHeaderSelection'
+    }" ng-click="$ctrl.onApi('disableGroupHeaderSelection')" ng-if="$ctrl.apis.indexOf('disableGroupHeaderSelection') > -1">disableGroupHeaderSelection</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'enableGroupHeaderSelection'
+    }" ng-click="$ctrl.onApi('enableGroupHeaderSelection')" ng-if="$ctrl.apis.indexOf('enableGroupHeaderSelection') > -1">enableGroupHeaderSelection</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'disableSelectAll'
+    }" ng-click="$ctrl.onApi('disableSelectAll')" ng-if="$ctrl.apis.indexOf('disableSelectAll') > -1">disableSelectAll</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'enableSelectAll'
+    }" ng-click="$ctrl.onApi('enableSelectAll')" ng-if="$ctrl.apis.indexOf('enableSelectAll') > -1">enableSelectAll</button>
+
+
+
+    <h3>Set States</h3>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'setData'
+    }" ng-click="$ctrl.onApi('setData', $ctrl.newData)" ng-if="$ctrl.apis.indexOf('setData') > -1">setData({{$ctrl.newData | json}})</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'setParams'
+    }" ng-click="$ctrl.onApi('setParams', $ctrl.newParams)" ng-if="$ctrl.apis.indexOf('setParams') > -1">setParams({{$ctrl.newParams | json}})</button>
+
+    <h3>Get States</h3>
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'getSelections'
+    }" ng-click="$ctrl.onApi('getSelections')" ng-if="$ctrl.apis.indexOf('getSelections') > -1">getSelections</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'getRows'
+    }" ng-click="$ctrl.onApi('getRows')" ng-if="$ctrl.apis.indexOf('getRows') > -1">getRows</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'getRowsBy'
+    }" ng-click="$ctrl.onApi('getRowsBy', $ctrl.searchBy)" ng-if="$ctrl.apis.indexOf('getRowsBy') > -1">getRowsBy({{$ctrl.searchBy | json}})</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'getParams'
+    }" ng-click="$ctrl.onApi('getParams')" ng-if="$ctrl.apis.indexOf('getParams') > -1">getParams</button>
+
+    <button class="btn" ng-class="{
+        'btn-current': $ctrl.currentApi === 'getView'
+    }" ng-click="$ctrl.getView()" ng-if="$ctrl.apis.indexOf('getView') > -1">getView</button>
+</div>
+<div class="callback">
+    {{$ctrl.apiCallback}}
+</div>

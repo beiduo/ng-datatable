@@ -9,3 +9,5 @@ node_modules
 *.un~
 
 dist/cached_uglify/
+
+demo/dist/cached_uglify/

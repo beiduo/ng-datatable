@@ -1,0 +1,85 @@
+<h1>Basic Selection</h1>
+<div class="demo">
+    according to the "isRowSelectable" config, you can only select people under 20
+    <ng-datatable config="$ctrl.gridConfig" receive="$ctrl.gridData" app-scope="$ctrl"></ng-datatable>
+</div>
+
+<api-component grid-api="$ctrl.gridApi" new-data="$ctrl.newData" apis="$ctrl.apis"></api-component>
+
+<script type="text/ng-template" id="simple.md">
+## Source Code
+
+### Javascript
+
+```javascript
+function Controller () {
+    this.gridConfig = {
+        cols: [
+            {
+                field: 'name',
+                displayName: 'Name'
+            },
+            {
+                field: 'country',
+                displayName: 'Country'
+            },
+            {
+                field: 'age',
+                displayName: 'Age'
+            }
+        ],
+        enableSelection: true,
+        isRowSelectable: function (row) {
+            return row.entity.age < 20;
+        }
+    };
+
+    this.gridData = [
+        {
+            name: 'Jack',
+            country: 'USA',
+            age: 18
+        },
+        {
+            name: 'Andrew',
+            country: 'UK',
+            age: 21
+        },
+        {
+            name: 'Lucy',
+            country: 'Germany',
+            age: 16
+        },
+        {
+            name: 'Xiao Mei',
+            country: 'China',
+            age: 19
+        }
+    ];
+
+    this.newData = [
+        {
+            name: 'Jimmy',
+            country: 'USA',
+            age: 18
+        },
+        {
+            name: 'Jean Pierre',
+            country: 'France',
+            age: 32
+        },
+        {
+            name: 'Andrew',
+            country: 'UK',
+            age: 21
+        },
+        {
+            name: 'Daisy',
+            country: 'Ireland',
+            age: 14
+        }
+    ];
+}
+```
+</script>
+<div marked src="'simple.md'" class="markdown-body"></div>

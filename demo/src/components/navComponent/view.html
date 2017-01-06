@@ -1,0 +1,9 @@
+<div class="title">
+    <svg ng-click="$ctrl.onMenus()"><use xlink:href="#icon-menu"></use></svg>
+    Demo
+</div>
+<ul ng-class="{show: $ctrl.showMenu}">
+    <li ng-repeat="mod in $ctrl.mods">
+        <a ui-sref="{{mod.state}}" ui-sref-active="current" ng-click="$ctrl.onClickMenu()">{{mod.displayName}}</a>
+    </li>
+</ul>

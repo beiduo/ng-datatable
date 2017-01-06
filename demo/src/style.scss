@@ -1,0 +1,167 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.layout {
+    display: flex;
+    display: -webkit-flex;
+    margin: 20px;
+}
+
+aside {
+    flex: 1;
+    -webkit-flex: 1;
+
+    .title {
+        padding: 0.5em;
+        margin-top: 1em;
+
+        * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        svg {
+            display: none;
+            width: 12px;
+            height: 12px;
+            margin-right: 5px;
+            margin-top: -5px;
+            fill: currentColor;
+        }
+    }
+
+    ul, li {
+        padding: 0;
+        margin: 0;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        display: block;
+        margin-right: 2em;
+        padding: 0.5em;
+        margin-top: 0.5em;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #555;
+
+        &:hover,
+        &:active {
+            background: #eee;
+        }
+
+        &.current,
+        &.current:hover,
+        &.current:active {
+            background: #333;
+            color: #ccc;
+        }
+    }
+}
+
+main {
+    flex: 4;
+    -webkit-flex: 4;
+
+    h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eee;
+    }
+
+    h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eee;
+    }
+}
+
+api-component {
+    .btn {
+        padding: 3px 5px;
+        border: 1px solid #ccc;
+        background: #fff;
+        border-radius: 4px;
+        outline: none;
+    }
+
+    .btn-current {
+        background: #555;
+        color: #fff;
+    }
+
+    .callback {
+        min-height: 5em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 1em 1.2em;
+        background: #333;
+        color: #ccc;
+    }
+}
+
+@media only screen and ( max-width: 756px ) {
+.layout {
+    display: block;
+    margin: 0;
+}
+
+aside {
+    position: relative;
+
+    .title {
+        margin: 0;
+
+        svg {
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+
+    ul {
+        position: absolute;
+        box-sizing: border-box;
+        width: 100%;
+        background: #333;
+        border-radius: 0 0 4px 4px;
+        overflow: hidden;
+        z-index: 2;
+        visibility: hidden;
+        padding: 5px 0;
+
+        &.show {
+            visibility: visible;
+        }
+    }
+
+    li {
+        padding: 5px 10px;
+    }
+
+    a {
+        margin: 0;
+        color: #ccc;
+
+        &:hover,
+        &:active {
+            background: #444;
+        }
+
+        &.current,
+        &.current:hover,
+        &.current:active {
+            background: #111;
+            color: #fff;
+        }
+    }
+}
+
+main {
+    margin: 20px;
+}
+}

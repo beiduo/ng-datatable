@@ -34,13 +34,22 @@ gulp.task('build', function () {
         .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('default', ['build'], function () {
-    gulp.watch('./src/**/*.js', ['build']);
-    gulp.watch('./src/templates/**/*.html', ['build']);
-    gulp.watch('./src/style/**/*.scss', ['build']);
+gulp.task('demo', function () {
+    gulp.src('./demo/src/index.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+        .pipe(webpack(require('./demo/webpack.config.js')))
+        .pipe(gulp.dest('./demo/dist'));
+
+    gulp.watch('./demo/src/**/*.js', ['demo']);
+    gulp.watch('./demo/src/**/*.html', ['demo']);
+    gulp.watch('./demo/src/**/*.scss', ['demo']);
     setTimeout(function () {
         console.log('------ ***** ***** ------');
         console.log('------ start watch ------');
         console.log('------ ***** ***** ------');
     }, 1000);
+});
+
+gulp.task('default', ['build', 'demo'], function () {
 });

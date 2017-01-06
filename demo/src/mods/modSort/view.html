@@ -1,0 +1,67 @@
+<h1>Sorting</h1>
+<div class="demo">
+    <ng-datatable config="$ctrl.gridConfig" receive="$ctrl.gridData" app-scope="$ctrl"></ng-datatable>
+</div>
+
+<api-component grid-api="$ctrl.gridApi" new-data="$ctrl.newData" apis="$ctrl.apis"></api-component>
+
+<script type="text/ng-template" id="simple.md">
+## Source Code
+
+### Javascript
+
+```javascript
+function Controller () {
+    this.gridConfig = {
+        cols: [
+            {
+                field: 'name',
+                displayName: 'Name'
+            },
+            {
+                field: 'country',
+                displayName: 'Country'
+            },
+            {
+                field: 'age',
+                displayName: 'Age',
+                enableSort: true
+            },
+            {
+                field: 'score',
+                displayName: 'Score',
+                enableSort: true
+            }
+        ]
+    };
+
+    this.gridData = [
+        {
+            name: 'Jack',
+            country: 'USA',
+            age: 18,
+            score: 9
+        },
+        {
+            name: 'Andrew',
+            country: 'UK',
+            age: 21,
+            score: 3
+        },
+        {
+            name: 'Jean Pierre',
+            country: 'France',
+            age: 32,
+            score: 8
+        },
+        {
+            name: 'Daisy',
+            country: 'Ireland',
+            age: 14,
+            score: 6
+        }
+    ];
+}
+```
+</script>
+<div marked src="'simple.md'" class="markdown-body"></div>

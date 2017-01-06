@@ -1,0 +1,288 @@
+<script type="text/ng-template" id="start.md">
+# Get Started
+
+## Description
+
+Documents and demonstration coming soon
+
+## Usage
+
+### Import component
+
+#### Using script tag
+
+**HTML**
+
+<pre><code>&lt;script src="dist/ng-datatable.min.js"&gt;&lt;/script&gt;</code></pre>
+
+**JS**
+
+```javascript
+angular.module('app', ['ng-datatable']);
+```
+
+#### Using require or Import
+
+**Require**
+
+```javascript
+var ngDatatable = require('ng-datatable/index');
+angular.module('app', [ngDatatable]);
+```
+
+**Import**
+
+```javascript
+import ngDatatable from 'ng-datatable/index';
+angular.module('app', [ngDatatable]);
+```
+
+### HTML
+
+```html
+<ng-datatable config="$ctrl.gridConfig" receive="$ctrl.gridData" app-scope="$ctrl"></ng-datatable>
+```
+
+### javascript
+
+```javascript
+function Controller () {
+    this.gridConfig = {
+        // the data will automatically be filtered according to config.params
+        params: {
+            pageNo: 20,
+            pageSize: 1,
+            status: 1
+        },
+        // configure the columns
+        cols: [
+            {
+                // if this column doesn't connect to a field in data, define a random one
+                field: 'title',
+                // text showing in the header
+                displayName: 'Title'
+            },
+            {
+                field: 'amount',
+                displayName: 'Amount',
+                // allow sorting
+                enableSort: true,
+                // angular text filter
+                filter: 'currency:￥',
+                // if text align right
+                alignRight: true,
+            },
+            {
+                field: 'status',
+                displayName: 'Status',
+                // enable filter
+                enableFilter: true,
+                filterOptions: [
+                    {
+                        name: 'text in the menu',
+                        value
+                    }
+                ]
+            },
+            {
+                field: 'xxx',
+                displayName: 'Operation',
+
+                // Template config
+
+                // please see the template documentation
+                
+                cellTemplate: '<div class="cell"><a href="javascript:;">view detail</a></div>',
+            }
+        ],
+        // default sort option, the data will automatically be sorted
+        sortDefaults: {
+            // field
+            sortBy: 'amount',
+            // order:asc / desc
+            order: 'asc'
+        },
+        // grouping
+        enableGrouping: true,
+        // default value: parent
+        groupBy: 'partnerName',
+        // default value: children
+        groupIn: 'detail',
+        // selection
+        enableSelection: true,
+        // allow selecting allow
+        // if true, a checkbox will show in the first cell of table header
+        enableSelectAll: true,
+        // allow selection in group header
+        enableGroupHeaderSelection: true,
+        // classname
+        customClass: 'asset-table',
+        // Serialize data, in case the displayed text is not the value
+        // in this case, value of status is a number, use this function to transfer to a text
+        dataSerialize: function (data) {
+            return _.assign({}, data, {
+                status: _.find(_.keys(statusMap), function (key) {
+                    return statusMap[key] === data.status;
+                })
+            });
+        },
+        // if return false, this row can not be selected (when enableSelection is true)
+        isRowSelectable: function (row) {
+            return row.entity.status !== 'error';
+        },
+
+        // used in external sorting, filtering and the setParams api
+        // if onFetch is not defined, the datatable will use its internal sorting and filtering
+        onFetch: function (data) {
+            // 'data' is an object mixed config.params and config.sortOptions together
+            // config.sortOptions is a copy of config.sortDefaults when the component initialized
+            // when fetching completed, use setData api to reset the datatable
+        },
+
+        // apiRegister, register api to you own component or anything else
+        apiRegister: function (api) {
+            this.gridApi = api;
+        },
+
+        // onRowSelectionChange will be executed when selecting or unselecting a row
+        onRowSelectionChange: function (row) {
+            if (!row.isSelected) {
+                this.gridOption.allSelected = false;
+                this.dataAllAssets.selected = false;
+            }
+            this.gridUpdateSelection();
+        },
+
+        // onGroupSelectionChange will be executed when selecting or unselecting a group
+        onGroupSelectionChange: function (group) {
+            if (!group.isSelected) {
+                this.gridOption.allSelected = false;
+                this.dataAllAssets.selected = false;
+            }
+            this.gridUpdateSelection();
+        }
+    };
+
+    this.gridConfig.apiRegister = this.gridConfig.apiRegister.bind(this);
+    this.gridConfig.onRowSelectionChange = this.gridConfig.onRowSelectionChange.bind(this);
+    this.gridConfig.onGroupSelectionChange = this.gridConfig.onGroupSelectionChange.bind(this);
+
+
+    // Plain data
+
+    this.gridData = {
+        rows: [
+            {
+                asset_no: 'LS54364559',
+                amount: 3265340980,
+                status: 1
+            },
+            {
+                asset_no: 'LS54364559',
+                amount: 6745673,
+                status: 2
+            }
+        ]
+    };
+
+    // Grouping data
+
+    this.gridData = [
+        {
+            // the group header, can be a string, or an object
+            // if it is an object, use groupHeaderTemplateUrl or groupHeaderTemplate to define a template
+            partnerName: 'ABC Company',
+            detail: [
+                {
+                    asset_no: 'LS54364559',
+                    amount: 3265340980,
+                    status: 1
+                },
+                {
+                    asset_no: 'LS54364559',
+                    amount: 6745673,
+                    status: 2
+                },
+                {
+                    asset_no: 'LS54364559',
+                    amount: 3265340980,
+                    status: 3
+                },
+                {
+                    asset_no: 'LS54364559',
+                    amount: 7696887,
+                    status: 3
+                },
+                {
+                    asset_no: 'LS54364559',
+                    amount: 14267,
+                    status: 2
+                }
+            ]
+        }
+    ];
+}
+```
+
+### Q & A
+
+1. How to access my own component/controller in ng-datatable?
+   
+   use ```app-scope``` to pass your controller to the ngDatatable component, then access it by calling ```vm.root.appScope``` in your templates.
+
+## Templating
+
+### Description
+
+template is the string of template, templateUrl is the identify of template in your angular application
+
+you can get the default templates in ```src/templates/``` directory
+
+### Valid template configuration
+
+- tableTemplateUrl / tableTemplate: ```table.html```
+- theadCellTemplateUrl / theadCellTemplate: ```th.html```
+- filterTemplateUrl / filterTemplate: ```th-filter.html```
+- groupHeaderTemplateUrl / groupHeaderTemplate: ```group-header.html```
+- cellTemplateUrl / cellTemplate: ```cell.html```
+
+### How to configure
+
+table and groupHeader can be configured in the ```config``` property.
+
+other templates can be configured in the ```config``` property and each element of ```config.cols``` (to template one column)
+
+## Api
+
+Api documentation coming soon
+
+### Get Current States
+
+- getSelections
+- getRows
+- getRowsBy { status: 'failed', amount: 3265340980 }
+- getParams
+- getView
+
+### Set States
+
+- setData($ctrl.dataNew)
+- setParams({status: 2})
+
+### Select All From Outside
+
+- selectAllRows
+- unselectAllRows
+
+### Change Configuration of Selecting
+
+- disableSelection
+- enableSelection
+- toggleSelection
+- disableGroupHeaderSelection
+- enableGroupHeaderSelection
+- disableSelectAll
+- enableSelectAll
+</script>
+
+<div marked src="'start.md'" class="markdown-body"></div>
