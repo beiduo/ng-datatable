@@ -15,8 +15,6 @@ export const stateProvider = ['$stateProvider', $stateProvider => {
             state.redirectTo = mod.redirectTo;
         }
 
-        console.log(state);
-
         $stateProvider.state(mod.state, state);
     })
 }];

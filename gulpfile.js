@@ -40,15 +40,6 @@ gulp.task('demo', function () {
         .pipe(jshint.reporter('default'))
         .pipe(webpack(require('./demo/webpack.config.js')))
         .pipe(gulp.dest('./demo/dist'));
-
-    gulp.watch('./demo/src/**/*.js', ['demo']);
-    gulp.watch('./demo/src/**/*.html', ['demo']);
-    gulp.watch('./demo/src/**/*.scss', ['demo']);
-    setTimeout(function () {
-        console.log('------ ***** ***** ------');
-        console.log('------ start watch ------');
-        console.log('------ ***** ***** ------');
-    }, 1000);
 });
 
 gulp.task('default', ['build', 'demo'], function () {

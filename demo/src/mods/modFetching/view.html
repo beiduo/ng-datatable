@@ -1,0 +1,53 @@
+<h1>Fetching Data</h1>
+<div class="demo">
+    <div ng-if="$ctrl.isFetching">{{$ctrl.isFetching}}</div>
+    <ng-datatable config="$ctrl.gridConfig" app-scope="$ctrl"></ng-datatable>
+</div>
+
+<api-component grid-api="$ctrl.gridApi" new-data="$ctrl.newData" apis="$ctrl.apis"></api-component>
+
+<script type="text/ng-template" id="simple.md">
+## Source Code
+
+### Javascript
+
+```javascript
+function Controller ($http) {
+    var self = this;
+
+    $http({
+        method: 'GET',
+        url: 'data/simple.json'
+    }).then(function (res) {
+        if (typeof  === 'object') {
+            self.gridApi.setData(res.data);
+        }
+    });
+
+    this.gridConfig = {
+        cols: [
+            {
+                field: 'name',
+                displayName: 'Name'
+            },
+            {
+                field: 'country',
+                displayName: 'Country'
+            },
+            {
+                field: 'age',
+                displayName: 'Age'
+            }
+        ],
+        apiRegister: function (api) {
+            this.gridApi = api;
+        }
+    };
+
+    this.gridConfig.apiRegister = this.gridConfig.apiRegister.bind(this);
+}
+
+Controller.$inject = ['$http'];
+```
+</script>
+<div marked src="'simple.md'" class="markdown-body"></div>

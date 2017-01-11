@@ -1,5 +1,6 @@
 import modStart from './modStart/index';
 import modSimple from './modSimple/index';
+import modFetching from './modFetching/index';
 import modGrouping from './modGrouping/index';
 import modSelection from './modSelection/index';
 import modSelectAll from './modSelectAll/index';
@@ -21,6 +22,13 @@ const mods = [
         path: '/simple',
         component: modSimple,
         displayName: 'Plain Data'
+    },
+    {
+        name: 'modFetching',
+        state: 'fetching',
+        path: '/fetching',
+        component: modFetching,
+        displayName: 'Fetching Data'
     },
     {
         name: 'modGrouping',
