@@ -1,4 +1,6 @@
-<table class="maintable">
+<table class="maintable {{vm.config.customClass}}" ng-class="{
+    'ng-table-nowrap': vm.config.whiteSpace === 'nowrap'
+}">
     <thead>
         <tr>
             <th class="select-cell" ng-if="vm.config.enableSelection">

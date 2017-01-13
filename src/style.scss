@@ -5,6 +5,10 @@ ng-datatable-cell {
     display: block;
 }
 
+.ng-datatable-nowrap {
+    white-space: nowrap;
+}
+
 ng-datatable {
 
     ul, li {
