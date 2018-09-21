@@ -12,6 +12,8 @@ Documents and demonstration coming soon
 
 **HTML**
 
+<pre><code>&lt;script src="dist/ng-datatable.min.js"&gt;&lt;/script&gt;</code></pre>
+
 **JS**
 
 ```javascript
@@ -36,6 +38,9 @@ angular.module('app', [ngDatatable]);
 
 ### HTML
 
+```html
+<ng-datatable config="$ctrl.gridConfig" receive="$ctrl.gridData" app-scope="$ctrl"></ng-datatable>
+```
 
 ### javascript
 
